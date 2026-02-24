@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查找手机仪表盘</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f8;
+            --text-color: #333;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --hover-transform: translateY(-5px);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: #666;
+            max-width: 600px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* 品牌配色 */
+        .apple .icon-box { background-color: #000000; }
+        .huawei .icon-box { background-color: #cf0a2c; }
+        .xiaomi .icon-box { background-color: #ff6900; }
+        .oppo .icon-box { background-color: #009b72; } /* OnePlus也可以用这个 */
+        .vivo .icon-box { background-color: #415fff; }
+        .samsung .icon-box { background-color: #1428a0; }
+        .google .icon-box { background-color: #4285F4; }
+        .honor .icon-box { background-color: #00A3E0; }
+
+        /* 简单的提示脚标 */
+        .tag {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🔍 找手机仪表盘</h1>
+        <p class="subtitle">点击下方品牌图标，跳转至官方云服务播放铃声。<br>建议让浏览器记住各官网密码以快速登录。</p>
+    </header>
+
+    <div class="grid-container">
+        <!-- 苹果 -->
+        <a href="https://www.icloud.com/find" target="_blank" class="card apple">
+            <div class="icon-box"></div>
+            <div class="card-name">Apple / iPhone</div>
+            <div class="tag">iCloud 查找</div>
+        </a>
+
+        <!-- 小米 -->
+        <a href="https://i.mi.com/mobile/find" target="_blank" class="card xiaomi">
+            <div class="icon-box">MI</div>
+            <div class="card-name">小米 / Redmi</div>
+            <div class="tag">小米云服务</div>
+        </a>
+
+        <!-- OPPO / OnePlus -->
+        <a href="https://cloud.heytap.com/" target="_blank" class="card oppo">
+            <div class="icon-box">OP</div>
+            <div class="card-name">OPPO / OnePlus</div>
+            <div class="tag">欢太云服务</div>
+        </a>
+
+        <!-- 华为 -->
+        <a href="https://cloud.huawei.com/" target="_blank" class="card huawei">
+            <div class="icon-box">HW</div>
+            <div class="card-name">华为 / Huawei</div>
+            <div class="tag">华为云空间</div>
+        </a>
+
+        <!-- Vivo / iQOO -->
+        <a href="https://findphone.vivo.com.cn/" target="_blank" class="card vivo">
+            <div class="icon-box">Vi</div>
+            <div class="card-name">vivo / iQOO</div>
+            <div class="tag">vivo云服务</div>
+        </a>
+
+        <!-- 荣耀 -->
+        <a href="https://cloud.hihonor.com/" target="_blank" class="card honor">
+            <div class="icon-box">HO</div>
+            <div class="card-name">荣耀 / Honor</div>
+            <div class="tag">荣耀云服务</div>
+        </a>
+
+        <!-- 三星 -->
+        <a href="https://smartthingsfind.samsung.com/" target="_blank" class="card samsung">
+            <div class="icon-box">SS</div>
+            <div class="card-name">三星 / Samsung</div>
+            <div class="tag">SmartThings Find</div>
+        </a>
+
+        <!-- Google (Android原生) -->
+        <a href="https://www.google.com/android/find" target="_blank" class="card google">
+            <div class="icon-box">G</div>
+            <div class="card-name">Google / Pixel</div>
+            <div class="tag">需科学上网</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>提示：各品牌查找功能均需要手机已登录账号并开启“查找手机”功能。</p>
+    </footer>
+
+</body>
+</html>
